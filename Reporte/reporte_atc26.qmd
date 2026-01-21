@@ -1,0 +1,142 @@
+---
+title: "Análisis de Conocimiento en Ciencia Abierta"
+subtitle: "Reporte de resultados de la encuesta ATC26"
+author: 
+  - name: "José Daniel Conejeros"
+    affiliation: "ATC26"
+    email: "jdconejeros@uc.cl"
+    orcid: ""
+date: today
+date-format: 'DD [de] MMMM [de] YYYY'
+lang: es
+abstract: |
+  Este reporte presenta un análisis de los niveles de conocimiento sobre ciencia abierta 
+  reportados por los participantes de la encuesta ATC26. Se incluyen distribuciones de 
+  cargo/posición de los participantes y un análisis detallado del nivel de conocimiento 
+  en diversas áreas relacionadas con la ciencia abierta.
+keywords:
+  - ciencia abierta
+  - conocimiento
+  - análisis de datos
+  - ATC26
+  - encuesta
+---
+
+<!---
+Puedes renderizar directamente desde la terminal
+# Todos los formatos
+quarto render reporte_atc26.qmd
+
+# Solo PDF
+quarto render reporte_atc26.qmd --to pdf
+
+# Solo Word
+quarto render reporte_atc26.qmd --to docx
+
+# Solo HTML
+quarto render reporte_atc26.qmd --to html
+--->
+
+
+```{r setup, include=FALSE}
+# Configuración inicial
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.align = "center",
+  fig.pos = "H",
+  out.width = "100%"
+)
+
+# Cargar librerías necesarias
+library(knitr)
+library(flextable)
+library(ggplot2)
+library(dplyr)
+library(readxl)
+library(rio)
+library(officer)
+```
+
+# Introducción
+
+Este documento presenta un análisis de los datos recopilados en la encuesta ATC26 sobre el nivel de conocimiento en ciencia abierta. El análisis incluye la distribución de los participantes según su cargo/posición y una evaluación detallada del nivel de conocimiento en diferentes áreas relacionadas con prácticas de ciencia abierta.
+
+# Metodología
+
+```{r calcular-n}
+# Calcular número total de participantes
+n_total <- nrow(rio::import("../Input/Data/full_data_atc26.xlsx"))
+```
+
+La encuesta fue respondida por un total de `r n_total` participantes. Se analizaron diversas dimensiones del conocimiento en ciencia abierta, incluyendo pre-registros, prácticas de ciencia abierta, repositorios de datos abiertos, lenguajes de programación, Git/Github, protocolos de código, e inteligencia artificial en ciencia abierta.
+
+# Resultados
+
+## Distribución de participantes por cargo/posición
+
+
+```{r tabla-cargo}
+# Cargar tabla de distribución de cargo
+tabla_cargo <- rio::import("../Output/tabla_distribucion_cargo.xlsx")
+
+# Crear tabla con flextable (compatible con HTML, PDF y Word)
+tabla_cargo |>
+  select(`Cargo/posición actual`, n, porcentaje) |>
+  mutate(porcentaje = round(porcentaje, 1)) |>
+  rename(
+    "Cargo/Posición" = `Cargo/posición actual`,
+    "N" = n,
+    "%" = porcentaje
+  ) |>
+  flextable() |>
+  set_caption("Distribución de participantes según cargo/posición actual") |>
+  theme_booktabs() |>
+  autofit() |>
+  align(align = "left", part = "header") |>
+  align(align = "left", j = 1) |>
+  align(align = "center", j = 2:3) |>
+  bg(i = seq(2, nrow(tabla_cargo), by = 2), bg = "#f7fafc", part = "body") |>
+  bold(part = "header") |>
+  fontsize(size = 10, part = "all")
+```
+
+## Nivel de conocimiento en ciencia abierta
+
+El siguiente gráfico muestra la distribución del nivel de conocimiento reportado por los participantes en diferentes áreas relacionadas con ciencia abierta. Los niveles evaluados son: Ninguno, Básico, Intermedio y Avanzado.
+
+```{r grafico-conocimiento, fig.cap="Distribución del nivel de conocimiento sobre ciencia abierta. Análisis de respuestas de participantes ATC26 (N = 71)."}
+# Cargar y mostrar el gráfico
+knitr::include_graphics("../Output/grafico_nivel_conocimiento.png")
+```
+
+### Resumen estadístico del nivel de conocimiento
+
+```{r tabla-resumen}
+# Cargar tabla resumen
+resumen_conocimiento <- rio::import("../Output/resumen_nivel_conocimiento.xlsx")
+
+# Crear tabla con flextable (compatible con HTML, PDF y Word)
+resumen_conocimiento |>
+  mutate(
+    across(where(is.numeric), ~ round(.x, 1))
+  ) |>
+  rename("Atributo" = pregunta_etiqueta)  |> 
+  flextable() |>
+  set_caption("Resumen estadístico del nivel de conocimiento por área") |>
+  theme_booktabs() |>
+  autofit() |>
+  align(align = "left", part = "header") |>
+  align(align = "left", j = 1) |>
+  align(align = "center", j = 2:ncol(resumen_conocimiento)) |>
+  bg(i = seq(2, nrow(resumen_conocimiento), by = 2), bg = "#f7fafc", part = "body") |>
+  bold(part = "header") |>
+  fontsize(size = 9, part = "all") |>
+  set_table_properties(layout = "autofit", width = 1)
+```
+
+# Conclusiones
+
+Este análisis proporciona una visión general del estado del conocimiento en ciencia  abierta entre los participantes de la encuesta ATC26. Los resultados pueden ser útiles para identificar áreas que requieren mayor atención en términos de formación y capacitación.
+

@@ -1,0 +1,60 @@
+/*-- scss:defaults --*/
+
+// Variables de color ATC26
+$color-primary: #1a365d;
+$color-secondary: #2c5282;
+$color-accent: #4299e1;
+$color-text: #2d3748;
+$color-bg-light: #f7fafc;
+
+/*-- scss:rules --*/
+
+body {
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: $color-text;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $color-primary;
+  font-weight: 700;
+}
+
+h1 {
+  border-bottom: 3px solid $color-secondary;
+  padding-bottom: 0.3em;
+}
+
+h2 {
+  border-bottom: 2px solid $color-accent;
+  padding-bottom: 0.2em;
+  margin-top: 1.5em;
+}
+
+code {
+  background-color: $color-bg-light;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+pre {
+  background-color: $color-bg-light;
+  border-left: 4px solid $color-accent;
+  padding: 1em;
+  border-radius: 4px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+thead {
+  background-color: $color-secondary;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: $color-bg-light;
+}
