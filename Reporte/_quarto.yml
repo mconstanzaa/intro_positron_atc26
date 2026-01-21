@@ -1,0 +1,46 @@
+---
+project:
+  type: default
+  output-dir: .
+
+format:
+  pdf:
+    documentclass: article
+    geometry:
+      - top=30mm
+      - left=25mm
+      - right=25mm
+      - bottom=30mm
+    fontsize: 11pt
+    linestretch: 1.5
+    colorlinks: true
+    linkcolor: blue
+    urlcolor: blue
+    citecolor: blue
+    fig-dpi: 300
+    fig-width: 10
+    fig-height: 6
+    keep-tex: false
+    include-in-header:
+      - \usepackage[spanish]{babel}
+      - \usepackage{float}
+      - \floatplacement{figure}{H}
+      - \floatplacement{table}{H}
+  
+  docx:
+    fig-dpi: 300
+    fig-width: 10
+    fig-height: 6
+  
+  html:
+    theme: 
+      - default
+      - custom.scss
+    fig-dpi: 300
+    fig-width: 10
+    fig-height: 6
+    toc: true
+    toc-depth: 2
+    code-fold: true
+    code-tools: true
+    embed-resources: true

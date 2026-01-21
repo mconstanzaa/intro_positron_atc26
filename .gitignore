@@ -47,8 +47,5 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
-Code/00.Random
-PresRep/Images
 PresRep/intro_positron_files
-*qmd
-*scss
+Reporte/reporte_atc26_files

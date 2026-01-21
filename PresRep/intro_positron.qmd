@@ -1,0 +1,155 @@
+---
+title: "Introducción a Positron"
+subtitle: "Herramientas modernas para ciencia de datos y análisis reproducible"
+author: "José Daniel Conejeros"
+date: today
+date-format: long
+lang: es
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    slide-number: true
+    slide-number-style: [bottom-right]
+    progress: true
+    transition: fade
+    background-transition: fade
+    transition-speed: fast
+    logo: "Images/ATC26.png"
+    #logo-position: [top-right]
+    #logo-height: 120px
+    footer: '<i class="fa fa-envelope"></i> jdconejeros@uc.cl | <i class="fab fa-github"></i> JDConejeros | ATC 2026 | © Hecho en <a href="https://quarto.org/">Quarto <i class="fa fa-mug-hot"></i></a>'
+    html-math-method: mathjax
+    preview-links: true
+    code-fold: true
+    code-tools: true
+    highlight-style: github
+    fig-width: 10
+    fig-height: 6
+    fig-dpi: 300
+---
+
+## Contenido 
+
+1. **Interfaz de Positron**
+2. **Migración desde RStudio**
+3. **Escritura de código en R**
+4. **Git y GitHub**
+5. **Documentos con Quarto**
+6. **Asistente de IA**
+
+---
+
+## Componentes principales de la interfaz
+
+---
+
+## Layout de Positron
+
+---
+
+## Personalización de la interfaz
+
+---
+
+## ¿Por qué migrar a Positron?
+
+---
+
+## Guía de migración
+
+---
+
+## Comparación RStudio vs Positron
+
+---
+
+## Data Explorer
+
+---
+
+## Ejecución de código R
+
+---
+
+## Ejemplo: Exploración de datos
+
+---
+
+## Panel de Variables
+
+---
+
+## ¿Qué es Git?
+
+---
+
+## Conceptos fundamentales
+
+---
+
+## Flujo de trabajo Git/GitHub
+
+---
+
+## Comandos Git esenciales
+
+---
+
+## Git en Positron
+
+---
+
+## Buenas prácticas con Git
+
+---
+
+## Ejemplo de .gitignore para R
+
+---
+
+## ¿Qué es Quarto?
+
+---
+
+## Formatos de salida
+
+---
+
+## Estructura básica de un documento Quarto
+
+---
+
+## Ejemplo: Documento HTML
+
+---
+
+## Ejemplo: Documento PDF
+
+---
+
+## Ejemplo: Documento Word
+
+---
+
+## Ventajas de Quarto
+
+---
+
+## Positron Assistant
+
+---
+
+## Chat y Agentes
+
+---
+
+## Uso del Chat
+
+---
+
+## Completado de código (Completions)
+
+---
+
+## Mejores prácticas con IA
+
