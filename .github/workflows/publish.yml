@@ -28,11 +28,6 @@ jobs:
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v4
-        with:
-          enablement: true
-
       - name: Render presentation
         working-directory: PresRep
         run: quarto render intro_positron.qmd

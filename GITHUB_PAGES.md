@@ -57,13 +57,21 @@ Para ver el estado de la publicación:
 
 ## Solución de Problemas
 
-### El workflow falla con error "Get Pages site failed"
+### Error: "Resource not accessible by integration" o "Get Pages site failed"
 
-**Solución**: Debes habilitar GitHub Pages primero:
-1. Ve a **Settings** → **Pages**
-2. Selecciona **GitHub Actions** como Source
-3. Guarda los cambios
-4. Vuelve a ejecutar el workflow
+**Causa**: El `GITHUB_TOKEN` no tiene permisos administrativos para crear/habilitar el sitio de Pages automáticamente. Esto es normal y esperado.
+
+**Solución**: Debes habilitar GitHub Pages **manualmente** una sola vez:
+
+1. Ve a tu repositorio en GitHub
+2. **Settings** → **Pages** (en el menú lateral izquierdo)
+3. En **Build and deployment**:
+   - **Source**: Selecciona **GitHub Actions** (NO "Deploy from a branch")
+4. Haz clic en **Save** (Guardar)
+5. Espera unos segundos para que GitHub configure el sitio
+6. Vuelve a ejecutar el workflow desde **Actions** → **Publish Presentation** → **Run workflow**
+
+**Nota**: Una vez habilitado manualmente, el workflow funcionará automáticamente en futuros pushes. Solo necesitas hacerlo una vez.
 
 ### El workflow falla al renderizar
 
