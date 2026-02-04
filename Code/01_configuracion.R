@@ -29,6 +29,7 @@ load_install(paquetes)
 
 # Configuración de opciones globales
 options(scipen = 999) # Desactiva la notación científica
+1+1
 
 # ==============================================================================
 # PALETA DE COLORES ------
